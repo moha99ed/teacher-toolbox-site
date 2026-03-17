@@ -39,6 +39,37 @@ const EMPTY_REVIEW_FORM = {
   honeypot: "",
 };
 
+const FAQ_ITEMS = [
+  {
+    q: "Which grade books does GradeBridge support?",
+    a: "GradeBridge currently supports Google Classroom, DeltaMath, and Quizizz / Wayground. Additional integrations are on the roadmap — submit a feature request below.",
+  },
+  {
+    q: "Is my students' data safe?",
+    a: "GradeBridge processes grade data locally in your browser. No student PII is stored on our servers. Please avoid including student names or IDs in any support submissions.",
+  },
+  {
+    q: "How do I find my extension version?",
+    a: "Open Chrome and go to chrome://extensions, find GradeBridge in the list, and look for the version number displayed below the extension name.",
+  },
+  {
+    q: "Grades aren't transferring — what should I check first?",
+    a: "Ensure you're on the correct source page, the extension is enabled, and your Source Mode matches your grade book. If the problem persists, submit a bug report below with your extension version and reproduction steps.",
+  },
+  {
+    q: "How do I update to the latest version?",
+    a: "Chrome updates extensions automatically. You can force an update by going to chrome://extensions, enabling Developer mode, and clicking Update.",
+  },
+  {
+    q: "Is GradeBridge free?",
+    a: "GradeBridge offers a free tier with core grading features. Premium plans unlock advanced integrations and priority support. See the Billing section for details.",
+  },
+  {
+    q: "How do I cancel or change my subscription?",
+    a: "Use the Manage Subscription button in the Billing section below — no need to contact support. Changes take effect at your next billing cycle.",
+  },
+];
+
 function prettyDate(raw: string) {
   const d = new Date(raw);
   if (Number.isNaN(d.getTime())) return "Recently";
@@ -68,6 +99,9 @@ export function TeacherToolboxClient() {
   const [approvedReviews, setApprovedReviews] = useState<Review[]>([]);
   const [reviewsLoading, setReviewsLoading] = useState(false);
   const [reviewsError, setReviewsError] = useState("");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const isBugReport = issueForm.type === "bug";
 
   const averageRating = useMemo(() => {
     if (!approvedReviews.length) return 0;
@@ -107,16 +141,14 @@ export function TeacherToolboxClient() {
     try {
       const response = await fetch("/api/teacher-toolbox/issues", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(issueForm),
       });
       const data = await response.json();
       if (!response.ok || !data.ok) {
         throw new Error(data.error || "Could not submit issue.");
       }
-      setIssueMessage("Report submitted. We typically respond in under 24 hours.");
+      setIssueMessage("Report submitted. We'll email you within 24 hours.");
       setIssueForm(EMPTY_ISSUE_FORM);
     } catch (error) {
       console.error(error);
@@ -133,9 +165,7 @@ export function TeacherToolboxClient() {
     try {
       const response = await fetch("/api/teacher-toolbox/reviews", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(reviewForm),
       });
       const data = await response.json();
@@ -164,52 +194,210 @@ export function TeacherToolboxClient() {
           <span>GradeBridge</span>
         </a>
         <nav className={styles.navLinks}>
+          <a href="#billing">Billing</a>
+          <a href="#faq">FAQ</a>
           <a href="#report">Report</a>
           <a href="#reviews">Reviews</a>
         </nav>
       </header>
 
+      {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroText}>
           <div className={styles.brandRow}>
-            <img src="/gradebridge-logo.png" alt="GradeBridge logo" className={styles.brandLogo} />
+            <img
+              src="/gradebridge-logo.png"
+              alt="GradeBridge logo"
+              className={styles.brandLogo}
+            />
             <div className={styles.brandMeta}>
               <span className={styles.brandKicker}>GradeBridge</span>
               <span className={styles.brandSub}>Official support channel</span>
             </div>
           </div>
+          <div className={styles.statusPill}>
+            <span className={styles.statusDot} />
+            All systems operational
+          </div>
           <p className={styles.eyebrow}>Teacher Tool Box</p>
-          <h1>GradeBridge Support Center</h1>
+          <h1>GradeBridge <em>Support</em> Center</h1>
           <p>
-            Report bugs, request features, and leave reviews for GradeBridge in
+            Report bugs, manage your subscription, and leave reviews — all in
             one place.
           </p>
           <div className={styles.heroActions}>
             <a href="#report" className={styles.primaryButton}>
               Report an Issue
             </a>
-            <a href="#reviews" className={styles.secondaryButton}>
-              Leave a Review
+            <a href="#billing" className={styles.secondaryButton}>
+              Manage Billing
             </a>
           </div>
         </div>
-        <div className={styles.heroPanel}>
-          <p className={styles.panelTitle}>What you can do here</p>
-          <ul>
-            <li>Report issues with clear debugging context.</li>
-            <li>Submit product suggestions for the roadmap.</li>
-            <li>Leave moderated reviews that help other teachers.</li>
-          </ul>
+        <div className={styles.quickCards}>
+          <a
+            href="#report"
+            className={styles.quickCard}
+            onClick={() => setIssueForm((s) => ({ ...s, type: "bug" }))}
+          >
+            <span className={styles.quickCardBadge} data-color="red">B</span>
+            <div>
+              <p className={styles.quickCardTitle}>Report a Bug</p>
+              <p className={styles.quickCardDesc}>
+                Something not working? Tell us what happened.
+              </p>
+            </div>
+            <span className={styles.quickCardArrow}>›</span>
+          </a>
+          <a
+            href="#report"
+            className={styles.quickCard}
+            onClick={() => setIssueForm((s) => ({ ...s, type: "feature" }))}
+          >
+            <span className={styles.quickCardBadge} data-color="blue">F</span>
+            <div>
+              <p className={styles.quickCardTitle}>Request a Feature</p>
+              <p className={styles.quickCardDesc}>
+                Suggest something for the roadmap.
+              </p>
+            </div>
+            <span className={styles.quickCardArrow}>›</span>
+          </a>
+          <a href="#billing" className={styles.quickCard}>
+            <span className={styles.quickCardBadge} data-color="green">$</span>
+            <div>
+              <p className={styles.quickCardTitle}>Billing & Payments</p>
+              <p className={styles.quickCardDesc}>
+                Manage your plan or make a payment.
+              </p>
+            </div>
+            <span className={styles.quickCardArrow}>›</span>
+          </a>
         </div>
       </section>
 
+      {/* Billing */}
+      <section id="billing" className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <div>
+            <h2>Billing & Payments</h2>
+            <p>Manage your GradeBridge subscription or make a one-time payment.</p>
+          </div>
+        </div>
+        <div className={styles.billingCards}>
+          <div className={styles.billingCard}>
+            <div className={styles.billingCardTop}>
+              <span className={styles.billingBadge} data-color="orange">↺</span>
+              <p className={styles.billingCardTitle}>Manage Subscription</p>
+            </div>
+            <p className={styles.billingCardDesc}>
+              Update your plan, change your payment method, or cancel — any
+              time from the Stripe customer portal.
+            </p>
+            <a
+              href="https://billing.stripe.com/p/login/your-portal-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.billingButton}
+            >
+              Open Customer Portal &rarr;
+            </a>
+          </div>
+          <div className={styles.billingCard}>
+            <div className={styles.billingCardTop}>
+              <span className={styles.billingBadge} data-color="blue">★</span>
+              <p className={styles.billingCardTitle}>Upgrade to Premium</p>
+            </div>
+            <p className={styles.billingCardDesc}>
+              Unlock advanced integrations, bulk grading tools, and priority
+              email support.
+            </p>
+            <a
+              href="https://buy.stripe.com/your-upgrade-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.billingButton}
+            >
+              View Plans &rarr;
+            </a>
+          </div>
+          <div className={styles.billingCard}>
+            <div className={styles.billingCardTop}>
+              <span className={styles.billingBadge} data-color="green">$</span>
+              <p className={styles.billingCardTitle}>One-time Payment</p>
+            </div>
+            <p className={styles.billingCardDesc}>
+              Pay for a district license, professional development session, or
+              custom integration.
+            </p>
+            <a
+              href="https://buy.stripe.com/your-one-time-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.billingButton}
+            >
+              Pay Now &rarr;
+            </a>
+          </div>
+        </div>
+        <p className={styles.billingNote}>
+          Need a quote or purchase order?{" "}
+          <a href="#report">Submit a request</a> with your district details and
+          we'll respond within 1 business day.
+        </p>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className={styles.section}>
+        <div className={styles.sectionHeader}>
+          <div>
+            <h2>Frequently Asked Questions</h2>
+            <p>Quick answers before you submit a ticket.</p>
+          </div>
+        </div>
+        <div className={styles.faqList}>
+          {FAQ_ITEMS.map((item, i) => (
+            <div key={i} className={styles.faqItem}>
+              <button
+                className={styles.faqQuestion}
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                aria-expanded={openFaq === i}
+                type="button"
+              >
+                <span>{item.q}</span>
+                <span
+                  className={`${styles.faqChevron} ${
+                    openFaq === i ? styles.faqChevronOpen : ""
+                  }`}
+                >
+                  ›
+                </span>
+              </button>
+              <div
+                className={`${styles.faqAnswer} ${
+                  openFaq === i ? styles.faqAnswerOpen : ""
+                }`}
+              >
+                <p>{item.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Report */}
       <section id="report" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <h2>Report an Issue</h2>
-          <p>
-            Include version, source mode, and expected vs actual behavior so we
-            can reproduce quickly.
-          </p>
+          <div>
+            <h2>Report an Issue</h2>
+            <p>
+              {isBugReport
+                ? "Include version, source mode, and expected vs actual behavior so we can reproduce quickly."
+                : issueForm.type === "feature"
+                ? "Describe the feature and how it would help you in the classroom."
+                : "Ask us anything — we'll get back to you within 24 hours."}
+            </p>
+          </div>
         </div>
         <form className={styles.card} onSubmit={submitIssue}>
           <div className={styles.grid}>
@@ -260,83 +448,96 @@ export function TeacherToolboxClient() {
                 <option value="Other">Other</option>
               </select>
             </label>
-            <label>
-              Extension Version
-              <input
-                value={issueForm.extensionVersion}
-                onChange={(e) =>
-                  setIssueForm((s) => ({
-                    ...s,
-                    extensionVersion: e.target.value,
-                  }))
-                }
-                placeholder="e.g. 2.0.3"
-              />
-            </label>
-            <label>
-              Source Mode
-              <select
-                value={issueForm.sourceMode}
-                onChange={(e) =>
-                  setIssueForm((s) => ({ ...s, sourceMode: e.target.value }))
-                }
-              >
-                <option value="auto">Auto</option>
-                <option value="classroom">Google Classroom</option>
-                <option value="deltamath">DeltaMath</option>
-                <option value="quizizz">Quizizz / Wayground</option>
-                <option value="clipboard">Clipboard</option>
-              </select>
-            </label>
+
+            {/* Bug-only technical fields */}
+            {isBugReport && (
+              <>
+                <label>
+                  Extension Version
+                  <input
+                    value={issueForm.extensionVersion}
+                    onChange={(e) =>
+                      setIssueForm((s) => ({
+                        ...s,
+                        extensionVersion: e.target.value,
+                      }))
+                    }
+                    placeholder="e.g. 2.0.3"
+                  />
+                </label>
+                <label>
+                  Source Mode
+                  <select
+                    value={issueForm.sourceMode}
+                    onChange={(e) =>
+                      setIssueForm((s) => ({
+                        ...s,
+                        sourceMode: e.target.value,
+                      }))
+                    }
+                  >
+                    <option value="auto">Auto</option>
+                    <option value="classroom">Google Classroom</option>
+                    <option value="deltamath">DeltaMath</option>
+                    <option value="quizizz">Quizizz / Wayground</option>
+                    <option value="clipboard">Clipboard</option>
+                  </select>
+                </label>
+                <label className={styles.full}>
+                  Page URL
+                  <input
+                    value={issueForm.pageUrl}
+                    onChange={(e) =>
+                      setIssueForm((s) => ({ ...s, pageUrl: e.target.value }))
+                    }
+                    placeholder="https://classroom.google.com/..."
+                  />
+                </label>
+                <label className={styles.full}>
+                  Reproduction Steps
+                  <textarea
+                    value={issueForm.reproSteps}
+                    onChange={(e) =>
+                      setIssueForm((s) => ({
+                        ...s,
+                        reproSteps: e.target.value,
+                      }))
+                    }
+                    placeholder="1. Open ... 2. Click Copy ... 3. Click Paste ..."
+                    rows={4}
+                  />
+                </label>
+                <label>
+                  Expected Behavior
+                  <textarea
+                    value={issueForm.expectedBehavior}
+                    onChange={(e) =>
+                      setIssueForm((s) => ({
+                        ...s,
+                        expectedBehavior: e.target.value,
+                      }))
+                    }
+                    rows={3}
+                  />
+                </label>
+                <label>
+                  Actual Behavior
+                  <textarea
+                    value={issueForm.actualBehavior}
+                    onChange={(e) =>
+                      setIssueForm((s) => ({
+                        ...s,
+                        actualBehavior: e.target.value,
+                      }))
+                    }
+                    rows={3}
+                  />
+                </label>
+              </>
+            )}
+
             <label className={styles.full}>
-              Page URL
-              <input
-                value={issueForm.pageUrl}
-                onChange={(e) =>
-                  setIssueForm((s) => ({ ...s, pageUrl: e.target.value }))
-                }
-                placeholder="https://classroom.google.com/..."
-              />
-            </label>
-            <label className={styles.full}>
-              Reproduction Steps
-              <textarea
-                value={issueForm.reproSteps}
-                onChange={(e) =>
-                  setIssueForm((s) => ({ ...s, reproSteps: e.target.value }))
-                }
-                placeholder="1. Open ... 2. Click Copy ... 3. Click Paste ..."
-                rows={4}
-              />
-            </label>
-            <label>
-              Expected Behavior
-              <textarea
-                value={issueForm.expectedBehavior}
-                onChange={(e) =>
-                  setIssueForm((s) => ({
-                    ...s,
-                    expectedBehavior: e.target.value,
-                  }))
-                }
-                rows={3}
-              />
-            </label>
-            <label>
-              Actual Behavior
-              <textarea
-                value={issueForm.actualBehavior}
-                onChange={(e) =>
-                  setIssueForm((s) => ({
-                    ...s,
-                    actualBehavior: e.target.value,
-                  }))
-                }
-                rows={3}
-              />
-            </label>
-            <label className={styles.full}>
-              Details
+              {isBugReport ? "Additional Details" : "Details"}
               <textarea
                 required
                 value={issueForm.details}
@@ -344,7 +545,13 @@ export function TeacherToolboxClient() {
                   setIssueForm((s) => ({ ...s, details: e.target.value }))
                 }
                 rows={4}
-                placeholder="Anything else that helps us debug faster."
+                placeholder={
+                  issueForm.type === "feature"
+                    ? "Describe the feature and how it would help your workflow."
+                    : issueForm.type === "question"
+                    ? "What would you like to know?"
+                    : "Anything else that helps us debug faster."
+                }
               />
             </label>
             <label className={styles.checkbox}>
@@ -371,18 +578,25 @@ export function TeacherToolboxClient() {
             <button type="submit" disabled={issueLoading}>
               {issueLoading ? "Submitting..." : "Submit Report"}
             </button>
-            {issueMessage ? <p>{issueMessage}</p> : null}
+            {issueMessage ? (
+              <p className={issueMessage.startsWith("Could") ? styles.errorText : styles.successText}>
+                {issueMessage}
+              </p>
+            ) : null}
           </div>
         </form>
       </section>
 
+      {/* Reviews */}
       <section id="reviews" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <h2>Reviews</h2>
-          <p>
-            Reviews are moderated before publishing. Share what worked and what
-            needs improvement.
-          </p>
+          <div>
+            <h2>Reviews</h2>
+            <p>
+              Reviews are moderated before publishing. Share what worked and
+              what needs improvement.
+            </p>
+          </div>
         </div>
 
         <div className={styles.reviewStats}>
@@ -397,7 +611,9 @@ export function TeacherToolboxClient() {
           </button>
         </div>
 
-        {reviewsError ? <p className={styles.errorText}>{reviewsError}</p> : null}
+        {reviewsError ? (
+          <p className={styles.errorText}>{reviewsError}</p>
+        ) : null}
 
         <div className={styles.reviewGrid}>
           {approvedReviews.map((review) => (
