@@ -226,6 +226,17 @@ export function TeacherToolboxClient() {
             one place.
           </p>
           <div className={styles.heroActions}>
+            <a
+              href="https://chrome.google.com/webstore/detail/gradebridge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.installButton}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 4a3 3 0 110 6 3 3 0 010-6zm0 14.2a7.2 7.2 0 01-5.6-2.68l2.6-4.5A3 3 0 0012 15a3 3 0 002.97-2.59l2.64 4.56A7.2 7.2 0 0112 20.2z"/>
+              </svg>
+              Add to Chrome — It&apos;s Free
+            </a>
             <a href="#report" className={styles.primaryButton}>
               Report an Issue
             </a>
@@ -235,6 +246,21 @@ export function TeacherToolboxClient() {
           </div>
         </div>
         <div className={styles.quickCards}>
+          <a
+            href="https://chrome.google.com/webstore/detail/gradebridge"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.quickCard}
+          >
+            <span className={styles.quickCardBadge} data-color="purple">↓</span>
+            <div>
+              <p className={styles.quickCardTitle}>Install GradeBridge</p>
+              <p className={styles.quickCardDesc}>
+                Add the Chrome extension — free to start.
+              </p>
+            </div>
+            <span className={styles.quickCardArrow}>›</span>
+          </a>
           <a
             href="#report"
             className={styles.quickCard}
@@ -292,10 +318,10 @@ export function TeacherToolboxClient() {
             </div>
             <p className={styles.billingCardDesc}>
               Update your plan, change your payment method, or cancel — any
-              time from the Stripe customer portal.
+              time from the LemonSqueezy customer portal.
             </p>
             <a
-              href="https://billing.stripe.com/p/login/your-portal-link"
+              href="https://app.lemonsqueezy.com/my-orders"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.billingButton}
@@ -309,13 +335,11 @@ export function TeacherToolboxClient() {
               <p className={styles.billingCardTitle}>Upgrade to Premium</p>
             </div>
             <p className={styles.billingCardDesc}>
-              Unlock advanced integrations, bulk grading tools, and priority
-              email support.
+              Unlock unlimited grade transfers with a monthly or annual
+              GradeBridge plan.
             </p>
             <a
-              href="https://buy.stripe.com/your-upgrade-link"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/gradebridge/pricing"
               className={styles.billingButton}
             >
               View Plans &rarr;
@@ -324,19 +348,17 @@ export function TeacherToolboxClient() {
           <div className={styles.billingCard}>
             <div className={styles.billingCardTop}>
               <span className={styles.billingBadge} data-color="green">$</span>
-              <p className={styles.billingCardTitle}>One-time Payment</p>
+              <p className={styles.billingCardTitle}>District License</p>
             </div>
             <p className={styles.billingCardDesc}>
-              Pay for a district license, professional development session, or
-              custom integration.
+              Need GradeBridge for your whole school or district? Contact us
+              for volume pricing.
             </p>
             <a
-              href="https://buy.stripe.com/your-one-time-link"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#report"
               className={styles.billingButton}
             >
-              Pay Now &rarr;
+              Contact Us &rarr;
             </a>
           </div>
         </div>

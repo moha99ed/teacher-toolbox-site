@@ -242,6 +242,28 @@
   gap: 0.65rem;
 }
 
+.installButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.3rem;
+  border-radius: var(--radius-lg);
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  box-shadow: 0 3px 12px rgba(26, 115, 232, 0.35);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.installButton:hover {
+  background: #1558b0;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 18px rgba(26, 115, 232, 0.45);
+}
+
 .primaryButton {
   display: inline-block;
   text-decoration: none;
