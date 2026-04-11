@@ -23,7 +23,7 @@ export default function PricingPage() {
             Transfer grades from Google Classroom, DeltaMath, Schoology, and Quizizz
             into PowerSchool — in seconds.
           </p>
-          <div className={styles.trialBadge}>10 free pastes included · No credit card required</div>
+          <div className={styles.trialBadge}>10 free pastes included · Paid plans coming soon</div>
         </div>
 
         {/* Plans */}
@@ -43,10 +43,10 @@ export default function PricingPage() {
               <li>Cancel anytime</li>
             </ul>
             <a
-              href="https://veemdurtomazwjighwrw.supabase.co"
+              href="https://teacher-toolbox-site.vercel.app/#report"
               className={styles.btnSecondary}
             >
-              Get started →
+              Join waitlist →
             </a>
           </div>
 
@@ -66,10 +66,10 @@ export default function PricingPage() {
               <li>Priority support</li>
             </ul>
             <a
-              href="https://veemdurtomazwjighwrw.supabase.co"
+              href="https://teacher-toolbox-site.vercel.app/#report"
               className={styles.btnPrimary}
             >
-              Get started →
+              Join waitlist →
             </a>
           </div>
 
