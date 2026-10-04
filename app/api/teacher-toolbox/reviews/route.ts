@@ -66,6 +66,29 @@ export async function POST(request: Request) {
       no_pii_confirmed: Boolean(payload.noPii),
     });
 
+    // Email notification — best-effort, review is already saved
+    const apiKey = process.env.RESEND_API_KEY;
+    const to = process.env.REPORT_TO;
+    if (apiKey && to) {
+      const displayName = clean(payload.name, 120) || "Anonymous Teacher";
+      const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+      const esc = (s: unknown) =>
+        String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from: process.env.REPORT_FROM || "GradeBridge <onboarding@resend.dev>",
+          to: [to],
+          subject: `New GradeBridge review ${stars} from ${displayName}`,
+          html:
+            `<p><b>${esc(displayName)}</b>${clean(payload.role, 160) ? ` (${esc(clean(payload.role, 160))})` : ""} left a ${rating}-star review.</p>` +
+            `<p style="white-space:pre-wrap">${esc(body)}</p>` +
+            `<p style="color:#999;font-size:12px">Pending moderation — approve it in Supabase to publish.</p>`,
+        }),
+      }).catch((err) => console.error("[reviews] Resend failed:", err));
+    }
+
     return NextResponse.json({
       ok: true,
       message: "Thanks. Your review was submitted for moderation.",

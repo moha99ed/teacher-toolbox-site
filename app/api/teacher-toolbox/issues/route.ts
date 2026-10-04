@@ -70,6 +70,45 @@ export async function POST(request: Request) {
       status: "new",
     });
 
+    // Email notification — best-effort, report is already saved
+    const apiKey = process.env.RESEND_API_KEY;
+    const to = process.env.REPORT_TO;
+    if (apiKey && to) {
+      const name = clean(payload.name, 120) || email;
+      const esc = (s: unknown) =>
+        String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      const typeLabel = type === "feature" ? "Feature request" : type === "question" ? "Question" : "Bug report";
+      const subject = `GradeBridge ${typeLabel} from ${email}` +
+        (details ? ` — ${details.slice(0, 60)}` : "");
+      const rows = [
+        ["type", type],
+        ["version", clean(payload.extensionVersion, 60)],
+        ["source", clean(payload.sourceMode, 60)],
+        ["page", clean(payload.pageUrl, 200)],
+      ]
+        .filter(([, v]) => v)
+        .map(([k, v]) => `<tr><td style="padding:2px 12px 2px 0;color:#666">${k}</td><td>${esc(v)}</td></tr>`)
+        .join("");
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from: process.env.REPORT_FROM || "GradeBridge <onboarding@resend.dev>",
+          to: [to],
+          reply_to: email,
+          subject,
+          html:
+            `<p><b>${esc(name)}</b> &lt;${esc(email)}&gt; submitted a ${typeLabel.toLowerCase()}.</p>` +
+            `<p style="white-space:pre-wrap">${esc(details)}</p>` +
+            (clean(payload.reproSteps, 8000) ? `<p><b>Steps to reproduce:</b><br>${esc(clean(payload.reproSteps, 8000))}</p>` : "") +
+            (clean(payload.expectedBehavior, 8000) ? `<p><b>Expected:</b><br>${esc(clean(payload.expectedBehavior, 8000))}</p>` : "") +
+            (clean(payload.actualBehavior, 8000) ? `<p><b>Actual:</b><br>${esc(clean(payload.actualBehavior, 8000))}</p>` : "") +
+            (rows ? `<table style="font:13px monospace">${rows}</table>` : "") +
+            `<p style="color:#999;font-size:12px">Reply to this email to respond to the teacher.</p>`,
+        }),
+      }).catch((err) => console.error("[issues] Resend failed:", err));
+    }
+
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("[teacher-toolbox/issues] POST failed:", error);
