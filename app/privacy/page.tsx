@@ -4,7 +4,7 @@ import styles from "./privacy.module.css";
 export const metadata: Metadata = {
   title: "Privacy Policy — GradeBridge",
   description:
-    "How GradeBridge handles your data. Grades stay on your device. We adhere to the Google API Services Limited Use policy.",
+    "How GradeBridge handles your data. Student grades stay in your browser and are never sent to our servers.",
 };
 
 export default function PrivacyPage() {
@@ -16,240 +16,204 @@ export default function PrivacyPage() {
       <div className={styles.container}>
         <div className={styles.header}>
           <h1 className={styles.title}>Privacy Policy</h1>
-          <p className={styles.subtitle}>GradeBridge · Last updated May 4, 2026</p>
+          <p className={styles.subtitle}>GradeBridge · Effective October 3, 2026 · Teacher Tool Box LLC</p>
         </div>
 
         <div className={styles.intro}>
-          GradeBridge is a Chrome extension built by{" "}
-          <strong>Teacher Tool Box LLC</strong> ("we", "us") that helps teachers
-          transfer grades from grading platforms into PowerSchool. This policy
-          explains exactly what data we access, why, and where it goes.
+          GradeBridge is a Chrome extension that copies grades from platforms
+          such as Google Classroom, DeltaMath, Wayground, Schoology, AP
+          Classroom, Gradient and Google Sheets and pastes them into the
+          PowerSchool gradebook. This policy explains what information
+          GradeBridge handles, why, and who it is shared with.
         </div>
 
-        <Section n="1" title="What grade data we access">
+        <Section n="1" title="Student data stays in your browser">
           <p>
-            When you click <strong>Copy Grades</strong>, GradeBridge reads
-            grades from the active browser tab (Google Classroom, DeltaMath,
-            Schoology, Wayground, Sheets, AP Classroom, or Gradient).
+            GradeBridge was built with FERPA in mind. Copying and pasting
+            grades happens entirely inside your own Chrome browser. Student
+            names, grades and comments are <strong>never</strong> sent to
+            GradeBridge's servers or to anyone else.
           </p>
           <ul>
             <li>
-              Grades are held in your browser's local storage (
-              <code>chrome.storage.local</code>) only long enough for you to
-              paste them into PowerSchool.
+              When you click <strong>Copy grades</strong>, GradeBridge reads
+              the grades on the page you are viewing and saves them in your
+              browser's local extension storage on your computer.
             </li>
             <li>
-              Grades are <strong>cleared automatically</strong> the next time
-              you click Copy.
+              When you click <strong>Paste grades</strong>, it reads them from
+              that same local storage and enters them into PowerSchool for you.
             </li>
             <li>
-              Grades are <strong>never</strong> transmitted to our servers,
-              never logged, and never shared with any third party.
+              Saved grades are replaced each time you copy again, and are
+              deleted if you remove the extension.
+            </li>
+            <li>
+              GradeBridge can only read a page after you click it on that page
+              (its toolbar button, or its right-click menu in Google Sheets).
+              Chrome enforces this; GradeBridge does not run in the background
+              on your sites.
+            </li>
+            <li>
+              If you choose Clipboard as the paste source, GradeBridge reads
+              your clipboard once, when you click Paste grades, and only after
+              you grant Chrome's clipboard permission. Clipboard contents stay
+              in your browser.
             </li>
           </ul>
         </Section>
 
-        <Section n="2" title="Account information we collect">
-          <p>When you sign in with Google, we receive:</p>
+        <Section n="2" title="Information we collect">
+          <p>
+            To run your account, GradeBridge stores information about you, the
+            teacher:
+          </p>
           <ul>
             <li>
-              <strong>Your name</strong> and <strong>email address</strong>{" "}
-              (via the <code>userinfo.email</code> and{" "}
-              <code>userinfo.profile</code> OAuth scopes)
+              Your Google account email address, name and account ID, received
+              from Google sign-in.
             </li>
             <li>
-              A <strong>paste counter</strong> (incremented each time you
-              paste, used to enforce free-trial limits)
+              Your plan status and the number of pastes you have made (a count
+              only, never what was pasted).
             </li>
           </ul>
           <p>
-            This data is stored in our backend (Supabase, hosted in the U.S.)
-            and is associated only with your account. We do{" "}
-            <strong>not</strong> sell, rent, or share this data with
-            advertisers or any third party.
+            If you use <strong>Report a problem</strong> or{" "}
+            <strong>Request a feature</strong>, we also receive:
+          </p>
+          <ul>
+            <li>The message you type.</li>
+            <li>
+              Technical details: the GradeBridge and Chrome versions, the last
+              error message, the name of the website you were on, the platform
+              you last copied from, and how many students were in that copy.
+            </li>
+            <li>
+              If you choose to include it, a page layout: the structure of the
+              page with all names, grades and other text removed.
+            </li>
+          </ul>
+          <p>Please do not type student names or grades into a report.</p>
+        </Section>
+
+        <Section n="3" title="How we use it">
+          <p>
+            We use this information only to provide and improve GradeBridge:
+          </p>
+          <ul>
+            <li>To sign you in and keep your account and plan working.</li>
+            <li>
+              To answer your problem reports and feature requests, and to add
+              support for new platforms.
+            </li>
+            <li>
+              To understand overall usage, such as how often grades are pasted.
+            </li>
+          </ul>
+          <p>
+            We do <strong>not</strong> sell your information, use it for
+            advertising, or use it to determine creditworthiness or for
+            lending.
           </p>
         </Section>
 
-        <Section n="3" title="Data we do not access">
+        <Section n="4" title="Google user data">
           <p>
-            GradeBridge <strong>never</strong> reads your Gmail, Drive,
-            Calendar, or any other Google data. The only Google scopes we use
-            are <code>userinfo.email</code> and <code>userinfo.profile</code>.
-          </p>
-        </Section>
-
-        <Section
-          n="4"
-          title="Google API Services Limited Use disclosure"
-        >
-          <p>
-            GradeBridge's use of information received from Google APIs adheres
-            to the{" "}
+            GradeBridge uses Google sign-in only to read your email address,
+            name and Google account ID. Its use of information received from
+            Google APIs adheres to the{" "}
             <a
               href="https://developers.google.com/terms/api-services-user-data-policy"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Google API Services User Data Policy
+              Chrome Web Store User Data Policy
             </a>
-            , including the <strong>Limited Use</strong> requirements.
-            Specifically:
+            , including the <strong>Limited Use</strong> requirements. We do
+            not access your Gmail, Google Drive or other Google account
+            content.
+          </p>
+        </Section>
+
+        <Section n="5" title="Who we share it with">
+          <p>
+            We share information only with service providers that help us run
+            GradeBridge, and only for that purpose:
           </p>
           <ul>
             <li>
-              Google user data is used <strong>only</strong> to identify your
-              account inside GradeBridge.
+              <strong>Google</strong>, for sign-in.
             </li>
             <li>
-              Google user data is <strong>not</strong> transferred to anyone
-              except as necessary to operate this app, comply with applicable
-              law, or as part of a merger, acquisition, or sale of assets with
-              user notice.
+              <strong>Supabase</strong>, which hosts our account database.
             </li>
             <li>
-              Google user data is <strong>not</strong> used or transferred for
-              serving ads, including retargeted, personalized, or
-              interest-based advertising.
-            </li>
-            <li>
-              Humans <strong>do not</strong> read Google user data unless we
-              have your explicit consent, it's required for security purposes
-              (e.g. investigating abuse), to comply with law, or the data is
-              aggregated and used for internal operations consistent with the
-              Limited Use policy.
+              <strong>Resend</strong>, which delivers report emails to our
+              support inbox.
             </li>
           </ul>
-        </Section>
-
-        <Section n="5" title="Third parties">
-          <p>We use the following service providers:</p>
-          <div className={styles.tableWrap}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>Provider</th>
-                  <th>Purpose</th>
-                  <th>What they receive</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Google (OAuth)</td>
-                  <td>Sign-in</td>
-                  <td>Your authentication request</td>
-                </tr>
-                <tr>
-                  <td>Supabase</td>
-                  <td>Account storage + paste counter</td>
-                  <td>Your name, email, paste count</td>
-                </tr>
-                <tr>
-                  <td>Vercel</td>
-                  <td>Hosting our marketing site</td>
-                  <td>Standard web request logs</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </Section>
-
-        <Section n="6" title="Permissions explained">
-          <div className={styles.tableWrap}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>Permission</th>
-                  <th>Why we ask for it</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>storage</code></td>
-                  <td>Hold grades briefly in your browser between Copy and Paste</td>
-                </tr>
-                <tr>
-                  <td><code>scripting</code>, <code>activeTab</code></td>
-                  <td>Read grades from the tab you're on, only when you click Copy</td>
-                </tr>
-                <tr>
-                  <td><code>identity</code></td>
-                  <td>Sign in with your Google account</td>
-                </tr>
-                <tr>
-                  <td><code>contextMenus</code></td>
-                  <td>Add a "Copy Grades" right-click option on Google Sheets</td>
-                </tr>
-                <tr>
-                  <td><code>clipboardRead</code> (optional)</td>
-                  <td>Only requested if you choose "Paste from Clipboard"</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </Section>
-
-        <Section n="7" title="Children and student data">
           <p>
-            GradeBridge is intended for use by{" "}
-            <strong>teachers and school staff</strong>. We do not knowingly
-            collect data from students. Grades that pass through the extension
-            are not stored, indexed, or analyzed by us — they go from the
-            source platform to PowerSchool through your browser, and that's
-            it.
-          </p>
-          <p>
-            If you are a school administrator with FERPA questions, please
-            contact us.
+            We may also disclose information if required by law. Like most web
+            services, our providers may keep standard server logs, such as IP
+            addresses, for security and reliability. We do not use them to
+            track you.
           </p>
         </Section>
 
-        <Section n="8" title="Your rights">
-          <p>You can:</p>
-          <ul>
-            <li>
-              <strong>Sign out</strong> from inside the extension at any time
-              (deletes your local session)
-            </li>
-            <li>
-              <strong>Request deletion</strong> of your account by emailing us
-              — we'll remove your record from Supabase within 7 days
-            </li>
-          </ul>
-        </Section>
-
-        <Section n="9" title="Changes to this policy">
+        <Section n="6" title="How long we keep it">
           <p>
-            If we make material changes to this policy, we'll post the new
-            version here and bump the "Last updated" date. Continued use after
-            changes means you accept the updated policy.
+            We keep your account information while you use GradeBridge. Problem
+            reports and feature requests are kept as long as needed to resolve
+            them and improve the extension. You can ask us to delete your
+            account information and reports at any time, and we will do so.
           </p>
         </Section>
 
-        <Section n="10" title="Contact">
-          <p>Questions or requests:</p>
+        <Section n="7" title="Security">
+          <p>
+            Information sent between GradeBridge and our servers travels over
+            encrypted HTTPS connections. Access to our account database is
+            limited to the GradeBridge team.
+          </p>
+        </Section>
+
+        <Section n="8" title="For schools and districts">
+          <p>
+            Because student records stay on the teacher's computer, GradeBridge
+            does not collect, store or transmit education records. Each district
+            makes its own decisions about the tools its staff use. If your
+            district needs more information to review GradeBridge, we are happy
+            to help.
+          </p>
+        </Section>
+
+        <Section n="9" title="Children">
+          <p>
+            GradeBridge is a tool for teachers. It is not directed to children,
+            and we do not knowingly collect information from children under 13.
+          </p>
+        </Section>
+
+        <Section n="10" title="Changes to this policy">
+          <p>
+            If we change this policy, we will update the effective date above.
+            If a change affects how we handle your information, we will explain
+            it in the extension's listing or popup before it takes effect.
+          </p>
+        </Section>
+
+        <Section n="11" title="Contact us">
+          <p>Questions or deletion requests:</p>
           <div className={styles.contactCard}>
             <div className={styles.contactName}>Teacher Tool Box LLC</div>
             <div className={styles.contactRow}>
-              Email:{" "}
               <a href="mailto:gradebridgesupport@gmail.com">
                 gradebridgesupport@gmail.com
               </a>
             </div>
-            <div className={styles.contactRow}>
-              Site:{" "}
-              <a href="https://teacher-toolbox-site.vercel.app">
-                teacher-toolbox-site.vercel.app
-              </a>
-            </div>
           </div>
         </Section>
-
-        <p className={styles.disclaimer}>
-          GradeBridge is not affiliated with, endorsed by, or sponsored by
-          PowerSchool, Google, DeltaMath, Schoology, Wayground/Quizizz, Inc.,
-          College Board, or Gradient. All trademarks are property of their
-          respective owners.
-        </p>
       </div>
     </main>
   );
