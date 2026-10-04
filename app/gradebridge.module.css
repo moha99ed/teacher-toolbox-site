@@ -41,9 +41,7 @@
 .navLogo {
   width: 28px;
   height: 28px;
-  border-radius: 7px;
-  border: 1px solid var(--gb-border);
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .navSep { flex: 1; }
@@ -156,9 +154,7 @@
 .heroBrandLogo {
   width: 40px;
   height: 40px;
-  border-radius: 10px;
-  border: 1px solid var(--gb-border);
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .heroBrandText { display: flex; flex-direction: column; gap: 0.1rem; }
@@ -989,9 +985,7 @@
 .footerLogo {
   width: 24px;
   height: 24px;
-  border-radius: 6px;
-  border: 1px solid var(--gb-border);
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .footerName {

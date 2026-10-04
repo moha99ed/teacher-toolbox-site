@@ -191,7 +191,7 @@ export function GradeBridgeClient() {
       <nav className={styles.nav}>
         <div className={styles.navInner}>
           <a href="#" className={styles.navBrand}>
-            <img src="/gradebridge-logo.png" alt="" className={styles.navLogo} />
+            <img src="/gradebridge-logo-dark.svg" alt="" className={styles.navLogo} />
             GradeBridge
           </a>
           <div className={styles.navSep} />
@@ -223,7 +223,7 @@ export function GradeBridgeClient() {
             </div>
 
             <div className={styles.heroBrand}>
-              <img src="/gradebridge-logo.png" alt="GradeBridge" className={styles.heroBrandLogo} />
+              <img src="/gradebridge-logo-dark.svg" alt="GradeBridge" className={styles.heroBrandLogo} />
               <div className={styles.heroBrandText}>
                 <span className={styles.heroBrandName}>GradeBridge</span>
                 <span className={styles.heroBrandSub}>Official support channel</span>
@@ -762,7 +762,7 @@ export function GradeBridgeClient() {
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <div className={styles.footerBrand}>
-            <img src="/gradebridge-logo.png" alt="" className={styles.footerLogo} />
+            <img src="/gradebridge-logo-dark.svg" alt="" className={styles.footerLogo} />
             <p className={styles.footerName}>GradeBridge</p>
           </div>
           <div className={styles.footerLinks}>
