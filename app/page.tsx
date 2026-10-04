@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { TeacherToolboxClient } from "./teacher-toolbox-client";
+import { GradeBridgeClient } from "./gradebridge-client";
 
 export const metadata: Metadata = {
-  title: "Teacher Tool Box | Feedback & Support",
+  title: "GradeBridge — Support Center",
   description:
-    "Report GradeBridge issues, ask questions, request features, and submit reviews.",
+    "Report GradeBridge issues, manage billing, browse FAQs, and submit reviews.",
 };
 
 export default function HomePage() {
-  return <TeacherToolboxClient />;
+  return <GradeBridgeClient />;
 }

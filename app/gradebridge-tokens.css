@@ -1,0 +1,55 @@
+/* GradeBridge Design Tokens — web adaptation of the extension design system */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  /* Surfaces */
+  --gb-surface:           #FFFFFF;
+  --gb-surface-elevated:  #F8F9FA;
+  --gb-surface-sunken:    #F1F3F4;
+
+  /* Borders */
+  --gb-border:            #DADCE0;
+  --gb-border-strong:     #BDC1C6;
+  --gb-divider:           #E8EAED;
+
+  /* Text */
+  --gb-text:              #202124;
+  --gb-text-secondary:    #5F6368;
+  --gb-text-tertiary:     #80868B;
+  --gb-text-disabled:     #BDC1C6;
+  --gb-text-on-primary:   #FFFFFF;
+
+  /* Blue — primary accent */
+  --gb-blue:              #1A73E8;
+  --gb-blue-hover:        #1B66C9;
+  --gb-blue-pressed:      #185ABC;
+  --gb-blue-tonal-bg:     #E8F0FE;
+  --gb-blue-tonal-text:   #1967D2;
+  --gb-blue-focus-ring:   rgba(26, 115, 232, 0.24);
+
+  /* Semantic */
+  --gb-success:           #1E8E3E;
+  --gb-success-tonal-bg:  #E6F4EA;
+  --gb-warning:           #B06000;
+  --gb-warning-tonal-bg:  #FEF7E0;
+  --gb-error:             #D93025;
+  --gb-error-tonal-bg:    #FCE8E6;
+
+  /* Typography */
+  --gb-font:  "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Radii */
+  --gb-radius-sm:   8px;
+  --gb-radius-md:   12px;
+  --gb-radius-lg:   16px;
+  --gb-radius-pill: 999px;
+
+  /* Elevation */
+  --gb-elevation-1: 0 1px 2px rgba(60, 64, 67, 0.30),
+                    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+
+  /* Motion */
+  --gb-fast:   100ms;
+  --gb-base:   150ms;
+  --gb-ease:   cubic-bezier(0.2, 0, 0, 1);
+}

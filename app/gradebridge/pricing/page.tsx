@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import styles from "./pricing.module.css";
 
 export const metadata: Metadata = {
-  title: "GradeBridge Pricing — Teacher Tool Box",
+  title: "GradeBridge Pricing",
   description: "Upgrade GradeBridge for unlimited grade transfers. $5/month or $39/year.",
 };
 
@@ -99,7 +99,7 @@ export default function PricingPage() {
         </div>
 
         <div className={styles.footer}>
-          <a href="/" className={styles.backLink}>← Back to Teacher Tool Box</a>
+          <a href="/" className={styles.backLink}>← Back to GradeBridge Support</a>
         </div>
 
       </div>
