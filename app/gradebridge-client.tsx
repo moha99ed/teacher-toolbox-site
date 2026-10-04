@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import styles from "./gradebridge.module.css";
 
 const SUPPORT_CHECKOUT_URL = "https://gradebridge.lemonsqueezy.com/checkout/buy/f35335e8-5cee-4b7c-a5db-8365f4232a1c";
+const CHROME_STORE_URL = "https://chromewebstore.google.com/detail/olhkjgbdgjekbpkchieibbhnhmkplknd";
+
 
 const SUPPORT_AMOUNTS = ["3", "5", "10", "20"] as const;
 type SupportFreq = "monthly" | "once" | "annual";
@@ -200,7 +202,7 @@ export function GradeBridgeClient() {
             <a href="#reviews" className={styles.navLink}>Reviews</a>
           </div>
           <a
-            href="https://chrome.google.com/webstore/detail/gradebridge"
+            href={CHROME_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.navInstall}
@@ -238,7 +240,7 @@ export function GradeBridgeClient() {
 
             <div className={styles.heroCtas}>
               <a
-                href="https://chrome.google.com/webstore/detail/gradebridge"
+                href={CHROME_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.btnPrimary}
@@ -256,7 +258,7 @@ export function GradeBridgeClient() {
           {/* Quick-action cards */}
           <div className={styles.quickCards}>
             <a
-              href="https://chrome.google.com/webstore/detail/gradebridge"
+              href={CHROME_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.quickCard}
