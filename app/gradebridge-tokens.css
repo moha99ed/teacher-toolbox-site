@@ -52,4 +52,28 @@
   --gb-fast:   100ms;
   --gb-base:   150ms;
   --gb-ease:   cubic-bezier(0.2, 0, 0, 1);
+
+  /* Legacy aliases — used by /privacy, /gradebridge/pricing and /gradebridge/success */
+  --bg:           var(--gb-surface-elevated);
+  --bg-card:      var(--gb-surface);
+  --border:       var(--gb-border);
+  --border-mid:   var(--gb-border-strong);
+  --text:         var(--gb-text);
+  --text-mid:     var(--gb-text-secondary);
+  --text-muted:   var(--gb-text-tertiary);
+  --copper:       var(--gb-blue);
+  --copper-md:    var(--gb-blue);
+  --copper-lt:    var(--gb-blue-tonal-bg);
+  --forest:       var(--gb-success);
+  --forest-md:    var(--gb-success);
+  --forest-lt:    var(--gb-success-tonal-bg);
+  --font-body:    var(--gb-font);
+  --font-display: var(--gb-font);
+  --radius-sm:    var(--gb-radius-sm);
+  --radius-md:    var(--gb-radius-md);
+  --radius-lg:    var(--gb-radius-lg);
+  --radius-xl:    20px;
+  --shadow-sm:    var(--gb-elevation-1);
+  --shadow-md:    0 2px 6px rgba(60, 64, 67, 0.15), 0 4px 12px rgba(60, 64, 67, 0.10);
+  --shadow-lg:    0 4px 12px rgba(60, 64, 67, 0.18), 0 12px 32px rgba(60, 64, 67, 0.12);
 }

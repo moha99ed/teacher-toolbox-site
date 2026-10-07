@@ -250,6 +250,7 @@ export function GradeBridgeClient() {
                 </svg>
                 Add to Chrome — Free
               </a>
+              <a href="#support" className={styles.btnSupport}>☕ Support GradeBridge</a>
               <a href="#report" className={styles.btnOutlined}>Report an Issue</a>
               <a href="#billing" className={styles.btnOutlined}>Manage Billing</a>
             </div>
@@ -379,7 +380,7 @@ export function GradeBridgeClient() {
             </div>
 
             {/* Support the developer card */}
-            <div className={styles.supportCard}>
+            <div id="support" className={styles.supportCard}>
               <div className={styles.supportCardHead}>
                 <span className={styles.supportIcon}>☕</span>
                 <div>

@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import styles from "./pricing.module.css";
 
+const CHECKOUT_BASE = "https://gradebridge.lemonsqueezy.com/checkout/buy";
+const MONTHLY_CHECKOUT_URL = `${CHECKOUT_BASE}/5b0afb20-ef95-4959-b421-7e93ef6a41a6?checkout[custom][plan]=monthly`;
+const ANNUAL_CHECKOUT_URL = `${CHECKOUT_BASE}/d7d74b1d-5c06-49c0-b885-a4304532b810?checkout[custom][plan]=yearly`;
+
 export const metadata: Metadata = {
   title: "GradeBridge Pricing",
   description: "Upgrade GradeBridge for unlimited grade transfers. $5/month or $39/year.",
@@ -23,7 +27,7 @@ export default function PricingPage() {
             Transfer grades from Google Classroom, DeltaMath, Schoology, and Quizizz
             into PowerSchool — in seconds.
           </p>
-          <div className={styles.trialBadge}>10 free pastes included · Paid plans coming soon</div>
+          <div className={styles.trialBadge}>10 free pastes included · Upgrade anytime</div>
         </div>
 
         {/* Plans */}
@@ -43,10 +47,12 @@ export default function PricingPage() {
               <li>Cancel anytime</li>
             </ul>
             <a
-              href="https://teacher-toolbox-site.vercel.app/#report"
+              href={MONTHLY_CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.btnSecondary}
             >
-              Join waitlist →
+              Get Monthly →
             </a>
           </div>
 
@@ -66,14 +72,21 @@ export default function PricingPage() {
               <li>Priority support</li>
             </ul>
             <a
-              href="https://teacher-toolbox-site.vercel.app/#report"
+              href={ANNUAL_CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.btnPrimary}
             >
-              Join waitlist →
+              Get Annual →
             </a>
           </div>
 
         </div>
+
+        <p className={styles.checkoutNote}>
+          Check out with the same Google email you use to sign in to the GradeBridge
+          extension — your account upgrades automatically.
+        </p>
 
         {/* FAQ */}
         <div className={styles.faq}>
