@@ -6,8 +6,10 @@ const MONTHLY_CHECKOUT_URL = `${CHECKOUT_BASE}/5b0afb20-ef95-4959-b421-7e93ef6a4
 const ANNUAL_CHECKOUT_URL = `${CHECKOUT_BASE}/d7d74b1d-5c06-49c0-b885-a4304532b810?checkout[custom][plan]=yearly`;
 
 export const metadata: Metadata = {
-  title: "GradeBridge Pricing",
-  description: "Upgrade GradeBridge for unlimited grade transfers. $5/month or $39/year.",
+  title: "Pricing",
+  description:
+    "GradeBridge is free for your first 10 pastes into PowerSchool. Upgrade for unlimited grade transfers at $5/month or $39/year.",
+  alternates: { canonical: "/pricing" },
 };
 
 export default function PricingPage() {
@@ -112,7 +114,7 @@ export default function PricingPage() {
         </div>
 
         <div className={styles.footer}>
-          <a href="/" className={styles.backLink}>← Back to GradeBridge Support</a>
+          <a href="/" className={styles.backLink}>← Back to GradeBridge</a>
         </div>
 
       </div>

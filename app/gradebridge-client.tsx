@@ -190,7 +190,7 @@ export function GradeBridgeClient() {
       {/* ── Nav ── */}
       <nav className={styles.nav}>
         <div className={styles.navInner}>
-          <a href="#" className={styles.navBrand}>
+          <a href="/" className={styles.navBrand}>
             <img src="/gradebridge-logo-dark.svg" alt="" className={styles.navLogo} />
             GradeBridge
           </a>
@@ -360,7 +360,7 @@ export function GradeBridgeClient() {
                 <p className={styles.billingCardDesc}>
                   Unlock unlimited grade transfers with a monthly or annual GradeBridge plan.
                 </p>
-                <a href="/gradebridge/pricing" className={styles.billingBtn}>
+                <a href="/pricing" className={styles.billingBtn}>
                   View Plans →
                 </a>
               </div>
