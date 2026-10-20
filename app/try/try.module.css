@@ -216,7 +216,8 @@
   width: 26px;
   height: 26px;
   border-radius: 7px;
-  background: #202124;
+  background: #FFFFFF;
+  border: 1px solid var(--gb-border);
 }
 
 .popupLogo img { width: 18px; height: 18px; }
