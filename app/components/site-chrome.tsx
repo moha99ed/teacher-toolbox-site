@@ -35,6 +35,8 @@ export function SiteFooter() {
           <a href="/google-classroom-to-powerschool" className={styles.footerLink}>Google Classroom to PowerSchool</a>
           <a href="/deltamath-to-powerschool" className={styles.footerLink}>DeltaMath to PowerSchool</a>
           <a href="/quizizz-to-powerschool" className={styles.footerLink}>Quizizz to PowerSchool</a>
+          <a href="/schoology-to-powerschool" className={styles.footerLink}>Schoology to PowerSchool</a>
+          <a href="/google-sheets-to-powerschool" className={styles.footerLink}>Google Sheets to PowerSchool</a>
           <a href="/pricing" className={styles.footerLink}>Pricing</a>
           <a href="/support" className={styles.footerLink}>Support</a>
           <a href="/privacy" className={styles.footerLink}>Privacy Policy</a>
