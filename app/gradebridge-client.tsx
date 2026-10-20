@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import styles from "./gradebridge.module.css";
+import { SiteFooter, SiteNav } from "./components/site-chrome";
 
 const SUPPORT_CHECKOUT_URL = "https://gradebridge.lemonsqueezy.com/checkout/buy/f35335e8-5cee-4b7c-a5db-8365f4232a1c";
 const CHROME_STORE_URL = "https://chromewebstore.google.com/detail/olhkjgbdgjekbpkchieibbhnhmkplknd";
@@ -187,32 +188,18 @@ export function GradeBridgeClient() {
   return (
     <div className={styles.page}>
 
-      {/* ── Nav ── */}
-      <nav className={styles.nav}>
-        <div className={styles.navInner}>
-          <a href="/" className={styles.navBrand}>
-            <img src="/gradebridge-logo-dark.svg" alt="" className={styles.navLogo} />
-            GradeBridge
-          </a>
-          <div className={styles.navSep} />
-          <div className={styles.navLinks}>
-            <a href="#billing" className={styles.navLink}>Billing</a>
-            <a href="#faq"     className={styles.navLink}>FAQ</a>
-            <a href="#report"  className={styles.navLink}>Report</a>
-            <a href="#reviews" className={styles.navLink}>Reviews</a>
-          </div>
-          <a
-            href={CHROME_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.navInstall}
-          >
-            Add to Chrome
-          </a>
-        </div>
-      </nav>
+      <SiteNav />
 
       <div className={styles.main}>
+
+        {/* ── In-page sections ── */}
+        <nav className={styles.sectionNav} aria-label="On this page">
+          <span className={styles.sectionNavLabel}>On this page:</span>
+          <a href="#billing">Billing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#report">Report an issue</a>
+          <a href="#reviews">Reviews</a>
+        </nav>
 
         {/* ── Hero ── */}
         <section className={styles.hero}>
@@ -757,22 +744,11 @@ export function GradeBridgeClient() {
           </form>
         </section>
 
+        <p className={styles.piiNote}>Please avoid sharing student names or other PII in forms.</p>
+
       </div>
 
-      {/* ── Footer ── */}
-      <footer className={styles.footer}>
-        <div className={styles.footerInner}>
-          <div className={styles.footerBrand}>
-            <img src="/gradebridge-logo-dark.svg" alt="" className={styles.footerLogo} />
-            <p className={styles.footerName}>GradeBridge</p>
-          </div>
-          <div className={styles.footerLinks}>
-            <a href="/privacy" className={styles.footerLink}>Privacy Policy</a>
-            <a href="#report" className={styles.footerLink}>Contact</a>
-          </div>
-          <p className={styles.footerCopy}>Please avoid sharing student PII in forms.</p>
-        </div>
-      </footer>
+      <SiteFooter />
 
     </div>
   );

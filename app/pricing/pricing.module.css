@@ -1,5 +1,5 @@
 .page {
-  min-height: 100vh;
+  min-height: calc(100vh - 57px); /* below the site menu */
   background: var(--bg);
   position: relative;
   overflow: hidden;
@@ -301,17 +301,3 @@
 }
 
 /* Footer */
-.footer {
-  text-align: center;
-}
-
-.backLink {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color .15s;
-}
-
-.backLink:hover {
-  color: var(--copper);
-}

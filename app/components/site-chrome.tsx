@@ -1,29 +1,7 @@
 import { CHROME_STORE_URL } from "../site";
 import styles from "./marketing.module.css";
 
-export function SiteNav() {
-  return (
-    <nav className={styles.nav}>
-      <div className={styles.navInner}>
-        <a href="/" className={styles.navBrand}>
-          <img src="/gradebridge-logo-dark.svg" alt="" className={styles.navLogo} />
-          GradeBridge
-        </a>
-        <div className={styles.navLinks}>
-          <a href="/try" className={styles.navLink}>Try it</a>
-          <a href="/#how-it-works" className={styles.navLink}>How it works</a>
-          <a href="/#platforms" className={styles.navLink}>Platforms</a>
-          <a href="/pricing" className={styles.navLink}>Pricing</a>
-          <a href="/schools" className={styles.navLink}>Schools</a>
-          <a href="/support" className={styles.navLink}>Support</a>
-        </div>
-        <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer" className={styles.navInstall}>
-          Add to Chrome
-        </a>
-      </div>
-    </nav>
-  );
-}
+export { SiteNav } from "./site-nav";
 
 export function SiteFooter() {
   return (
