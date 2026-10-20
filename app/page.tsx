@@ -103,7 +103,7 @@ export default function HomePage() {
             </p>
             <div className={styles.ctas}>
               <InstallButton />
-              <a href="#how-it-works" className={styles.btnOutlined}>See how it works</a>
+              <a href="/try" className={styles.btnOutlined}>Try the demo</a>
             </div>
             <p className={styles.trustLine}>
               🔒 10 free pastes · Student names and grades never leave your browser

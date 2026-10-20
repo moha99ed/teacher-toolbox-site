@@ -23,7 +23,9 @@ export default function PricingPage() {
 
         {/* Header */}
         <div className={styles.header}>
-          <img src="/gradebridge-logo.png" alt="GradeBridge" className={styles.logo} />
+          <span className={styles.logo}>
+            <img src="/gradebridge-logo-light.svg" alt="GradeBridge" className={styles.logoMark} />
+          </span>
           <h1 className={styles.title}>GradeBridge Pricing</h1>
           <p className={styles.sub}>
             Transfer grades from Google Classroom, DeltaMath, Schoology, and Quizizz

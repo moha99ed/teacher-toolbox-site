@@ -10,6 +10,7 @@ export function SiteNav() {
           GradeBridge
         </a>
         <div className={styles.navLinks}>
+          <a href="/try" className={styles.navLink}>Try it</a>
           <a href="/#how-it-works" className={styles.navLink}>How it works</a>
           <a href="/#platforms" className={styles.navLink}>Platforms</a>
           <a href="/pricing" className={styles.navLink}>Pricing</a>
@@ -40,6 +41,7 @@ export function SiteFooter() {
           <a href="/google-sheets-to-powerschool" className={styles.footerLink}>Google Sheets to PowerSchool</a>
           <a href="/ap-classroom-to-powerschool" className={styles.footerLink}>AP Classroom to PowerSchool</a>
           <a href="/gradient-to-powerschool" className={styles.footerLink}>Gradient to PowerSchool</a>
+          <a href="/try" className={styles.footerLink}>Try the demo</a>
           <a href="/pricing" className={styles.footerLink}>Pricing</a>
           <a href="/schools" className={styles.footerLink}>For schools &amp; districts</a>
           <a href="/support" className={styles.footerLink}>Support</a>

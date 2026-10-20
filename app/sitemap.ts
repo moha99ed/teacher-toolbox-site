@@ -3,6 +3,7 @@ import { SITE_URL } from "./site";
 
 const ROUTES: { path: string; priority: number }[] = [
   { path: "/", priority: 1 },
+  { path: "/try", priority: 0.9 },
   { path: "/google-classroom-to-powerschool", priority: 0.9 },
   { path: "/deltamath-to-powerschool", priority: 0.8 },
   { path: "/quizizz-to-powerschool", priority: 0.8 },
