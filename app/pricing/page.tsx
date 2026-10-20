@@ -108,7 +108,7 @@ export default function PricingPage() {
             </div>
             <div className={styles.faqItem}>
               <div className={styles.faqQ}>Is my data safe?</div>
-              <div className={styles.faqA}>Grade data never leaves your browser — it's copied and pasted locally. Only your email and usage count are stored.</div>
+              <div className={styles.faqA}>Grade data never leaves your browser — it's copied and pasted locally. Only your Google sign-in details, plan and paste count are stored.</div>
             </div>
           </div>
         </div>

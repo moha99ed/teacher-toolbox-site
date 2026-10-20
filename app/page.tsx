@@ -49,11 +49,11 @@ const FAQ_ITEMS: FaqEntry[] = [
   },
   {
     q: "Is it safe for student data?",
-    a: "Student names and grades are processed locally in your browser and are never sent to GradeBridge servers. We only store your sign-in email and how many pastes you've used.",
+    a: "Student names and grades are processed locally in your browser and are never sent to GradeBridge servers. We only store your Google sign-in details, your plan and how many pastes you've used.",
   },
   {
     q: "Do I need my district's IT team to set it up?",
-    a: "No. GradeBridge runs in your own Chrome browser and doesn't need a district integration. If your school restricts Chrome extensions, your admin can allow it from the Google Admin console.",
+    a: "No. GradeBridge runs in your own Chrome browser and doesn't need a district integration. If your school restricts Chrome extensions, your admin can allow it from the Google Admin console. Setup steps for school IT are at gradebridge.support/schools.",
   },
   {
     q: "How much does it cost?",
@@ -196,9 +196,10 @@ export default function HomePage() {
             <p>
               GradeBridge reads grades from the page you have open and enters them into PowerSchool
               inside your own browser. Student names and grades are never uploaded to our servers.
-              The only things we store are your sign-in email and your paste count.
+              We only store what runs your account: your Google sign-in details, your plan and your
+              paste count.
             </p>
-            <p><a href="/privacy">Read the privacy policy →</a></p>
+            <p><a href="/privacy">Read the privacy policy →</a> · <a href="/schools">Information for school IT →</a></p>
           </div>
         </section>
 
@@ -223,7 +224,7 @@ export default function HomePage() {
               <p className={styles.priceName}>Schools &amp; districts</p>
               <p className={styles.priceValue}>Volume</p>
               <p className={styles.priceDesc}>
-                Licenses for a whole department or district. <a href="/support#report">Contact us</a>
+                Licenses for a whole department or district. <a href="/schools">Learn more</a>
               </p>
             </div>
           </div>

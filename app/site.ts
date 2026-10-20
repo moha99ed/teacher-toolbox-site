@@ -1,6 +1,8 @@
 export const SITE_URL = "https://gradebridge.support";
 export const SITE_NAME = "GradeBridge";
-export const CHROME_STORE_URL = "https://chromewebstore.google.com/detail/olhkjgbdgjekbpkchieibbhnhmkplknd";
+export const EXTENSION_ID = "olhkjgbdgjekbpkchieibbhnhmkplknd";
+export const CHROME_STORE_URL = `https://chromewebstore.google.com/detail/${EXTENSION_ID}`;
+export const SUPPORT_EMAIL = "gradebridgesupport@gmail.com";
 
 export const SOURCE_PLATFORMS = [
   { name: "Google Classroom", href: "/google-classroom-to-powerschool" },

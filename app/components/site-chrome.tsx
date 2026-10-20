@@ -13,6 +13,7 @@ export function SiteNav() {
           <a href="/#how-it-works" className={styles.navLink}>How it works</a>
           <a href="/#platforms" className={styles.navLink}>Platforms</a>
           <a href="/pricing" className={styles.navLink}>Pricing</a>
+          <a href="/schools" className={styles.navLink}>Schools</a>
           <a href="/support" className={styles.navLink}>Support</a>
         </div>
         <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer" className={styles.navInstall}>
@@ -40,6 +41,7 @@ export function SiteFooter() {
           <a href="/ap-classroom-to-powerschool" className={styles.footerLink}>AP Classroom to PowerSchool</a>
           <a href="/gradient-to-powerschool" className={styles.footerLink}>Gradient to PowerSchool</a>
           <a href="/pricing" className={styles.footerLink}>Pricing</a>
+          <a href="/schools" className={styles.footerLink}>For schools &amp; districts</a>
           <a href="/support" className={styles.footerLink}>Support</a>
           <a href="/privacy" className={styles.footerLink}>Privacy Policy</a>
         </div>

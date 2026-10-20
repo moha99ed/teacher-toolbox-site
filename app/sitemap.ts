@@ -11,6 +11,7 @@ const ROUTES: { path: string; priority: number }[] = [
   { path: "/ap-classroom-to-powerschool", priority: 0.8 },
   { path: "/gradient-to-powerschool", priority: 0.8 },
   { path: "/pricing", priority: 0.7 },
+  { path: "/schools", priority: 0.7 },
   { path: "/support", priority: 0.5 },
   { path: "/privacy", priority: 0.3 },
 ];
