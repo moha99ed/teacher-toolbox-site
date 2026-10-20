@@ -8,6 +8,6 @@ export const SOURCE_PLATFORMS = [
   { name: "Quizizz / Wayground", href: "/quizizz-to-powerschool" },
   { name: "Schoology", href: "/schoology-to-powerschool" },
   { name: "Google Sheets", href: "/google-sheets-to-powerschool" },
-  { name: "AP Classroom" },
-  { name: "Gradient" },
+  { name: "AP Classroom", href: "/ap-classroom-to-powerschool" },
+  { name: "Gradient (GradeCam)", href: "/gradient-to-powerschool" },
 ] as const;

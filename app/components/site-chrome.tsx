@@ -37,12 +37,14 @@ export function SiteFooter() {
           <a href="/quizizz-to-powerschool" className={styles.footerLink}>Quizizz to PowerSchool</a>
           <a href="/schoology-to-powerschool" className={styles.footerLink}>Schoology to PowerSchool</a>
           <a href="/google-sheets-to-powerschool" className={styles.footerLink}>Google Sheets to PowerSchool</a>
+          <a href="/ap-classroom-to-powerschool" className={styles.footerLink}>AP Classroom to PowerSchool</a>
+          <a href="/gradient-to-powerschool" className={styles.footerLink}>Gradient to PowerSchool</a>
           <a href="/pricing" className={styles.footerLink}>Pricing</a>
           <a href="/support" className={styles.footerLink}>Support</a>
           <a href="/privacy" className={styles.footerLink}>Privacy Policy</a>
         </div>
         <p className={styles.footerCopy}>
-          GradeBridge is an independent tool and is not affiliated with or endorsed by PowerSchool, Google, DeltaMath, Wayground or the other platforms named on this site.
+          GradeBridge is an independent tool and is not affiliated with or endorsed by PowerSchool, Google, College Board, DeltaMath, Wayground, GradeCam or the other platforms named on this site.
         </p>
       </div>
     </footer>
