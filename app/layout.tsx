@@ -1,9 +1,24 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SITE_NAME, SITE_URL } from "./site";
 
 export const metadata: Metadata = {
-  title: "GradeBridge — Support",
-  description: "Report bugs, manage billing, and leave reviews for GradeBridge.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "GradeBridge — Copy Google Classroom Grades into PowerSchool",
+    template: "%s | GradeBridge",
+  },
+  description:
+    "GradeBridge is a Chrome extension that copies grades from Google Classroom, DeltaMath, Quizizz, Schoology and more straight into the PowerSchool gradebook.",
+  applicationName: SITE_NAME,
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

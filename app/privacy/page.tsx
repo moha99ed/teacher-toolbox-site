@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import styles from "./privacy.module.css";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — GradeBridge",
+  title: "Privacy Policy",
   description:
     "How GradeBridge handles your data. Student grades stay in your browser and are never sent to our servers.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

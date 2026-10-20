@@ -4,6 +4,7 @@ import styles from "./success.module.css";
 export const metadata: Metadata = {
   title: "Welcome to GradeBridge — Teacher Tool Box",
   description: "Your GradeBridge subscription is active. Start transferring grades now.",
+  robots: { index: false, follow: false },
 };
 
 export default function SuccessPage() {
