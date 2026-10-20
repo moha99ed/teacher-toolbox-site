@@ -201,6 +201,7 @@
 
 /* ── Hero illustration: copy → paste ── */
 .demo {
+  margin: 0;
   background: var(--gb-surface);
   border: 1px solid var(--gb-border);
   border-radius: var(--gb-radius-lg);
@@ -245,10 +246,11 @@
 }
 
 .demoTable tr:last-child td { border-bottom: none; }
-.demoTable td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.demoTable td:last-child { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 .tag {
   display: inline-block;
+  white-space: nowrap;
   font-size: 0.6875rem;
   font-weight: 600;
   border-radius: var(--gb-radius-pill);
