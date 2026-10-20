@@ -4,8 +4,8 @@ export const CHROME_STORE_URL = "https://chromewebstore.google.com/detail/olhkjg
 
 export const SOURCE_PLATFORMS = [
   { name: "Google Classroom", href: "/google-classroom-to-powerschool" },
-  { name: "DeltaMath" },
-  { name: "Quizizz / Wayground" },
+  { name: "DeltaMath", href: "/deltamath-to-powerschool" },
+  { name: "Quizizz / Wayground", href: "/quizizz-to-powerschool" },
   { name: "Schoology" },
   { name: "Google Sheets" },
   { name: "AP Classroom" },
