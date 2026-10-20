@@ -178,15 +178,11 @@ export default function HomePage() {
           <h2 className={styles.h2}>Copy from the tools you already use</h2>
           <p className={styles.lead}>GradeBridge reads scores from these platforms and pastes them into PowerSchool.</p>
           <ul className={styles.platforms}>
-            {SOURCE_PLATFORMS.map((p) =>
-              "href" in p ? (
-                <li key={p.name}>
-                  <a href={p.href} className={styles.platform}>{p.name} → PowerSchool guide</a>
-                </li>
-              ) : (
-                <li key={p.name} className={styles.platform}>{p.name}</li>
-              )
-            )}
+            {SOURCE_PLATFORMS.map((p) => (
+              <li key={p.name}>
+                <a href={p.href} className={styles.platform}>{p.name} → PowerSchool guide</a>
+              </li>
+            ))}
           </ul>
           <p className={styles.platformsNote}>
             Using something else? <a href="/support#report">Request a platform</a> and we'll look at adding it.
