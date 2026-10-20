@@ -183,7 +183,7 @@ export function TryDemo() {
           <aside className={styles.popup} aria-label="GradeBridge extension (simulated)">
             <div className={styles.popupHead}>
               <span className={styles.popupLogo}>
-                <img src="/gradebridge-logo-light.svg" alt="" />
+                <img src="/gradebridge-logo-dark.svg" alt="" />
               </span>
               <strong>GradeBridge</strong>
               <span className={styles.popupSim}>Simulation</span>
