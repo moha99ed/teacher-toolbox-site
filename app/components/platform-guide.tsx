@@ -202,6 +202,7 @@ export function PlatformGuide({ content }: { content: PlatformGuideContent }) {
           <p className={styles.lead}>{content.closing}</p>
           <div className={styles.ctas}>
             <InstallButton />
+            <a href="/try" className={styles.btnOutlined}>Try the demo</a>
           </div>
         </section>
       </main>

@@ -403,6 +403,8 @@
   margin: 0;
 }
 
+.featuresTwo { grid-template-columns: repeat(2, 1fr); }
+
 /* ── Platforms ── */
 .platforms {
   display: flex;
