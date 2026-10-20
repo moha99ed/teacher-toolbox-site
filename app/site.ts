@@ -6,8 +6,8 @@ export const SOURCE_PLATFORMS = [
   { name: "Google Classroom", href: "/google-classroom-to-powerschool" },
   { name: "DeltaMath", href: "/deltamath-to-powerschool" },
   { name: "Quizizz / Wayground", href: "/quizizz-to-powerschool" },
-  { name: "Schoology" },
-  { name: "Google Sheets" },
+  { name: "Schoology", href: "/schoology-to-powerschool" },
+  { name: "Google Sheets", href: "/google-sheets-to-powerschool" },
   { name: "AP Classroom" },
   { name: "Gradient" },
 ] as const;
